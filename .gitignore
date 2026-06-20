@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local planning and source documents (CVs, resume, private notes)
+/Resources/
