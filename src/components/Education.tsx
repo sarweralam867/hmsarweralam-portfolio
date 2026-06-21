@@ -9,7 +9,7 @@ export function Education() {
         <SectionHeading eyebrow="06 / Education" title="A strong academic foundation." />
         <div className="education-grid">
           {portfolio.education.map((item) => (
-            <article key={item.school}>
+            <article key={`${item.school}-${item.degree}`}>
               <GraduationCap size={23} />
               <p className="period">{item.period}</p>
               <h3>{item.school}</h3>

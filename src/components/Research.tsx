@@ -1,4 +1,5 @@
 import { ArrowUpRight, FileText } from "lucide-react";
+import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 import { SectionHeading } from "./SectionHeading";
 
@@ -25,13 +26,19 @@ export function Research() {
                 <p className="contribution">{publication.contribution}</p>
                 <div className="tag-row">{publication.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
               </div>
-              <div className="publication-link">
+              <div className="publication-links">
+                {publication.caseStudy ? (
+                  <Link className="publication-action case-study-action" href={publication.caseStudy} aria-label={`Read more about ${publication.title}`}>
+                    <ArrowUpRight size={19} /><small>Read more</small>
+                  </Link>
+                ) : null}
                 {publication.href ? (
-                  <a href={publication.href} target="_blank" rel="noreferrer" aria-label={`Read ${publication.title}`}>
-                    <ArrowUpRight size={20} />
+                  <a className="publication-action" href={publication.href} target="_blank" rel="noreferrer" aria-label={`Open DOI for ${publication.title}`}>
+                    <FileText size={17} /><small>DOI</small>
                   </a>
-                ) : <FileText size={20} aria-hidden="true" />}
-                {publication.doi ? <small>DOI</small> : <small>In review</small>}
+                ) : (
+                  <span className="publication-action"><FileText size={17} aria-hidden="true" /><small>In review</small></span>
+                )}
               </div>
             </article>
           ))}

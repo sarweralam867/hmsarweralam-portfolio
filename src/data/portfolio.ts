@@ -16,6 +16,7 @@ export type Publication = {
   tags: string[];
   href?: string;
   doi?: string;
+  caseStudy?: string;
 };
 export type Project = {
   title: string;
@@ -73,6 +74,7 @@ export const portfolio = {
       status: "Published",
       doi: "10.1109/JBHI.2025.3629580",
       href: "https://doi.org/10.1109/JBHI.2025.3629580",
+      caseStudy: "/work/renseg",
       contribution:
         "Designed an unsupervised medical image segmentation pipeline focused on accuracy and reliability in clinical applications.",
       tags: ["Medical imaging", "Unsupervised segmentation", "Healthcare AI"],
@@ -86,6 +88,7 @@ export const portfolio = {
       status: "Published",
       doi: "10.28991/ESJ-2026-010-03-03",
       href: "https://doi.org/10.28991/ESJ-2026-010-03-03",
+      caseStudy: "/work/leukocytenet",
       contribution:
         "Co-developed a hybrid CNN Transformer model with explainable AI for leukocyte classification.",
       tags: ["Explainable AI", "CNN Transformer", "Leukocyte classification"],
@@ -128,25 +131,6 @@ export const portfolio = {
     },
   ] satisfies Experience[],
   projects: [
-    {
-      title: "RenSeg",
-      category: "Published Research / Medical AI",
-      description:
-        "An AI-based medical image analysis framework for early detection of renal calculi and renal carcinoma from CT-scan images, using kidney localization and unsupervised Contour-Guided Quickshift segmentation.",
-      tools: ["Python", "YOLOv8", "Quickshift", "Computer Vision"],
-      href: "/work/renseg",
-      repository: "https://github.com/sarweralam867/RenSeg",
-      featured: true,
-    },
-    {
-      title: "LeukocyteNet",
-      category: "Published Research / Explainable AI",
-      description:
-        "An explainable deep learning framework for automated classification of ten white blood cell categories from peripheral blood smear images.",
-      tools: ["VGG19", "Swin Transformer", "Grad-CAM", "LIME"],
-      href: "/work/leukocytenet",
-      featured: true,
-    },
     {
       title: "CiteWeave-DuckSummarizer",
       category: "AI / NLP Tool",
