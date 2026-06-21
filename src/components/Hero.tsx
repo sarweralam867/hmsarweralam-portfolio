@@ -5,7 +5,12 @@ import { GitHubIcon, LinkedInIcon } from "./BrandIcons";
 export function Hero() {
   return (
     <section className="hero" id="home">
-      <div className="hero-glow" aria-hidden="true" />
+      <div className="hero-glow" aria-hidden="true">
+        <span className="orbit-sun" />
+        <span className="orbit-track orbit-outer"><i /></span>
+        <span className="orbit-track orbit-middle"><i /></span>
+        <span className="orbit-track orbit-inner"><i /></span>
+      </div>
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow hero-eyebrow"><span />{portfolio.eyebrow}</p>

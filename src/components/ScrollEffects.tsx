@@ -11,7 +11,10 @@ export function ScrollEffects() {
       return;
     }
 
-    sections.forEach((section) => section.classList.add("reveal-section"));
+    sections.forEach((section) => {
+      section.classList.remove("is-visible");
+      section.classList.add("reveal-section");
+    });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,8 +28,18 @@ export function ScrollEffects() {
       { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
     );
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        sections.forEach((section) => observer.observe(section));
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+      observer.disconnect();
+    };
   }, []);
 
   return null;
