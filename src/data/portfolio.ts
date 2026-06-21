@@ -30,7 +30,7 @@ export const portfolio = {
   title: "Software Engineer | AI/ML Researcher",
   eyebrow: "Software Engineer · AI/ML Researcher",
   headline:
-    "I build intelligent software—from robust backend systems to trustworthy AI.",
+    "I build intelligent software, from robust backend systems to trustworthy AI.",
   intro:
     "My work combines practical engineering with applied research, spanning backend development, machine learning, medical image analysis, and explainable AI.",
   email: "Sarweralam867@gmail.com",
@@ -84,8 +84,8 @@ export const portfolio = {
       doi: "10.28991/ESJ-2026-010-03-03",
       href: "https://doi.org/10.28991/ESJ-2026-010-03-03",
       contribution:
-        "Co-developed a hybrid CNN–Transformer model with explainable AI for leukocyte classification.",
-      tags: ["Explainable AI", "CNN–Transformer", "Leukocyte classification"],
+        "Co-developed a hybrid CNN Transformer model with explainable AI for leukocyte classification.",
+      tags: ["Explainable AI", "CNN Transformer", "Leukocyte classification"],
     },
     {
       type: "Conference paper",
@@ -103,11 +103,11 @@ export const portfolio = {
     {
       organization: "BNX Network Inc.",
       role: "Software Engineer Junior · formerly Trainee Software Engineer",
-      period: "April 2025 — Present",
+      period: "April 2025 to Present",
       location: "Naperville, IL, USA · Dhaka, Bangladesh",
       highlights: [
         "Develop and deploy ML/AI solutions using Random Forest, XGBoost, SVM, Isolation Forest, and FastAPI.",
-        "Build backend services with FastAPI and custom TCP server–client architecture, plus web applications with Django.",
+        "Build backend services with FastAPI and custom TCP server-client architecture, plus web applications with Django.",
         "Integrate solutions into C# .NET applications and contribute to testing, validation, debugging, and performance improvement.",
         "Contribute to SecVA Protector, iConnectNow, IT Bot, and MSP-related systems under senior engineering guidance.",
       ],
@@ -115,7 +115,7 @@ export const portfolio = {
     {
       organization: "BRAC University",
       role: "Student Tutor · Undergraduate Teaching Assistant, CSE",
-      period: "May 2023 — April 2024",
+      period: "May 2023 to April 2024",
       location: "Dhaka, Bangladesh",
       highlights: [
         "Provided 12 hours of weekly support in programming, debugging, and problem solving.",
@@ -133,7 +133,7 @@ export const portfolio = {
       tools: ["Python", "SentenceTransformer", "TF-IDF", "BeautifulSoup"],
     },
     {
-      title: "Ask My PDF — Local RAG Chatbot",
+      title: "Ask My PDF: Local RAG Chatbot",
       category: "RAG / Local LLM",
       description:
         "An offline document assistant combining PDF extraction, chunking, sentence embeddings, FAISS retrieval, and local TinyLlama inference.",
@@ -166,7 +166,7 @@ export const portfolio = {
     {
       school: "BRAC University",
       degree: "B.Sc. in Computer Science and Engineering",
-      period: "2020 — 2024",
+      period: "2020 to 2024",
       detail: "CGPA 3.88/4.00 · Vice Chancellor’s List (4 semesters) · Dean’s List (5 semesters)",
     },
     {
@@ -184,21 +184,21 @@ export const portfolio = {
   ],
   awards: [
     {
-      title: "Best Thesis Award — Spring 2024",
+      title: "Best Thesis Award, Spring 2024",
       organization: "BRAC University",
       date: "February 28, 2025",
       detail: "Recognized for research on unsupervised segmentation for renal calculi and carcinoma analysis.",
     },
     {
-      title: "Senior Executive — Communications & Marketing",
+      title: "Senior Executive, Communications & Marketing",
       organization: "BRAC University Computer Club",
-      date: "2021 — 2023",
+      date: "2021 to 2023",
       detail: "Led and organized communication and marketing efforts for club events and activities.",
     },
     {
-      title: "House Vice Captain — MJ House",
+      title: "House Vice Captain, MJ House",
       organization: "Bir Shreshtha Noor Mohammad Public College",
-      date: "2018 — 2019",
+      date: "2018 to 2019",
       detail: "Helped oversee house activities, events, and competitions.",
     },
   ],

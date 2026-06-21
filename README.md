@@ -1,4 +1,4 @@
-# H. M. Sarwer Alam — Portfolio
+# H. M. Sarwer Alam Portfolio
 
 Personal portfolio of H. M. Sarwer Alam, a software engineer and AI/ML researcher working across backend systems, medical image analysis, explainable AI, and applied machine learning.
 
