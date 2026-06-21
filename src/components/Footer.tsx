@@ -5,7 +5,7 @@ export function Footer() {
     <footer>
       <div className="container footer-inner">
         <p>© {new Date().getFullYear()} {portfolio.name}</p>
-        <p>Built with care, Next.js, and TypeScript.</p>
+        <p>Stay connected!</p>
         <a href="#home">Back to top ↑</a>
       </div>
     </footer>
