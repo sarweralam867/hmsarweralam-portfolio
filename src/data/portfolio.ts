@@ -22,6 +22,9 @@ export type Project = {
   category: string;
   description: string;
   tools: string[];
+  href?: string;
+  repository?: string;
+  featured?: boolean;
 };
 
 export const portfolio = {
@@ -126,6 +129,25 @@ export const portfolio = {
   ] satisfies Experience[],
   projects: [
     {
+      title: "RenSeg",
+      category: "Published Research / Medical AI",
+      description:
+        "An AI-based medical image analysis framework for early detection of renal calculi and renal carcinoma from CT-scan images, using kidney localization and unsupervised Contour-Guided Quickshift segmentation.",
+      tools: ["Python", "YOLOv8", "Quickshift", "Computer Vision"],
+      href: "/work/renseg",
+      repository: "https://github.com/sarweralam867/RenSeg",
+      featured: true,
+    },
+    {
+      title: "LeukocyteNet",
+      category: "Published Research / Explainable AI",
+      description:
+        "An explainable deep learning framework for automated classification of ten white blood cell categories from peripheral blood smear images.",
+      tools: ["VGG19", "Swin Transformer", "Grad-CAM", "LIME"],
+      href: "/work/leukocytenet",
+      featured: true,
+    },
+    {
       title: "CiteWeave-DuckSummarizer",
       category: "AI / NLP Tool",
       description:
@@ -212,3 +234,119 @@ export const navigation: Link[] = [
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
+
+export const renseg = {
+  title: "RenSeg",
+  label: "Featured research project",
+  fullTitle:
+    "Leveraging Unsupervised Segmentation using Localization and Contour-Guided Quickshift for Renal Calculi and Carcinoma Segmentation and Classification",
+  summary:
+    "RenSeg is an AI-based medical image analysis framework designed for early detection of renal calculi and renal carcinoma from CT-scan images.",
+  overview: [
+    "The study addresses a major challenge in medical imaging: supervised models often require large amounts of manually annotated clinical data, which is costly, time-consuming, and difficult to obtain. To reduce this dependency, RenSeg uses kidney localization and an unsupervised Contour-Guided Quickshift segmentation method to isolate the kidney region of interest and remove irrelevant image regions.",
+    "The framework was evaluated on 8,737 axial and coronal CT-scan images covering normal kidneys, renal calculi, and renal carcinoma. After segmentation, transfer learning models such as ResNet50, VGG19, and MobileNetV2 were used for classification. The RenSeg-based approach outperformed manually annotated data across multiple evaluation metrics. MobileNetV2 achieved the best classification accuracy of 98%, while the segmentation method reached Dice scores of 0.9458 for calculi and 0.9309 for carcinoma.",
+    "Overall, the work shows that unsupervised ROI-focused segmentation can improve renal disease classification while reducing annotation effort, making it a scalable and practical approach for medical image diagnosis.",
+  ],
+  contribution:
+    "I contributed to the design of the unsupervised medical image segmentation pipeline, with a focus on accuracy and reliability for clinical applications.",
+  repository: "https://github.com/sarweralam867/RenSeg",
+  publication: "https://doi.org/10.1109/JBHI.2025.3629580",
+  venue: "IEEE Journal of Biomedical and Health Informatics, 2025",
+  doi: "10.1109/JBHI.2025.3629580",
+  license: "MIT License",
+  results: [
+    { value: "8,737", label: "Axial and coronal CT images" },
+    { value: "98%", label: "Best classification accuracy" },
+    { value: "0.9458", label: "Calculi Dice score" },
+    { value: "0.9309", label: "Carcinoma Dice score" },
+  ],
+  pipeline: [
+    {
+      number: "01",
+      title: "Anatomical localization",
+      description: "YOLOv8 identifies the kidneys and aorta in CT images before segmentation.",
+    },
+    {
+      number: "02",
+      title: "Contour-guided segmentation",
+      description: "Quickshift uses localized contours to produce unsupervised regions of interest.",
+    },
+    {
+      number: "03",
+      title: "Image preparation",
+      description: "Segmented regions are cropped and resized to a consistent 224 by 224 format.",
+    },
+    {
+      number: "04",
+      title: "Classification readiness",
+      description: "Processed data is prepared for MobileNetV2, VGG19, and ResNet50 experiments.",
+    },
+  ],
+  technologies: [
+    "Python",
+    "YOLOv8",
+    "Quickshift",
+    "PyTorch",
+    "OpenCV",
+    "MobileNetV2",
+    "VGG19",
+    "ResNet50",
+  ],
+};
+
+export const leukocyteNet = {
+  title: "LeukocyteNet",
+  label: "Featured research project",
+  fullTitle:
+    "An Explainable Transfer-Transformer Fusion Learning Model for Leukocyte Classification",
+  summary:
+    "LeukocyteNet is an explainable deep learning framework developed for automated classification of white blood cell disorders from peripheral blood smear images.",
+  overview: [
+    "The study addresses the limitations of manual microscopic diagnosis, which is time-consuming, subjective, and highly dependent on expert pathologists. To improve diagnostic efficiency and reliability, the model classifies ten leukocyte categories, including lymphoma, myelodysplastic syndrome, AML, CLL, CML, healthy cells, and different ALL subtypes.",
+    "The proposed architecture combines VGG19 and Swin Transformer in a transfer-transformer fusion design. VGG19 extracts local morphological features such as cell texture, nucleus structure, and cytoplasmic patterns, while the Swin Transformer captures broader spatial relationships across the image. The model was trained using data from ALL-IDB, the American Society of Hematology Image Bank, and Taleqani Hospital, with augmentation applied to improve class balance and generalization.",
+    "LeukocyteNet achieved 97.34% classification accuracy and outperformed several baseline models, including Xception, InceptionV3, MobileNet, DenseNet121, and VGG19. The study incorporated Grad-CAM, LIME, and Saliency Map to show which regions of blood cell images influenced the model's decisions. Overall, the work demonstrates a clinically transparent and high-performing AI approach for leukocyte classification, supporting faster and more reliable hematological diagnosis.",
+  ],
+  contribution:
+    "I co-developed the hybrid CNN Transformer framework and its explainable AI workflow for reliable leukocyte classification.",
+  publication: "https://doi.org/10.28991/ESJ-2026-010-03-03",
+  venue: "Emerging Science Journal, 2026",
+  doi: "10.28991/ESJ-2026-010-03-03",
+  results: [
+    { value: "97.34%", label: "Classification accuracy" },
+    { value: "10", label: "Leukocyte categories" },
+    { value: "3", label: "Clinical image sources" },
+    { value: "3", label: "Explainability methods" },
+  ],
+  pipeline: [
+    {
+      number: "01",
+      title: "Clinical data preparation",
+      description: "Blood smear images from three sources are balanced with augmentation for robust training.",
+    },
+    {
+      number: "02",
+      title: "Local feature extraction",
+      description: "VGG19 learns cell texture, nucleus structure, and cytoplasmic morphology.",
+    },
+    {
+      number: "03",
+      title: "Global context learning",
+      description: "Swin Transformer captures broader spatial relationships across each blood cell image.",
+    },
+    {
+      number: "04",
+      title: "Transparent prediction",
+      description: "Grad-CAM, LIME, and Saliency Map reveal the regions influencing classification decisions.",
+    },
+  ],
+  technologies: [
+    "Deep Learning",
+    "VGG19",
+    "Swin Transformer",
+    "Transfer Learning",
+    "Grad-CAM",
+    "LIME",
+    "Saliency Map",
+    "Medical Imaging",
+  ],
+};
