@@ -2,17 +2,48 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Code2, FileText, ScanLine } from "lucide-react";
 import { GitHubIcon } from "@/components/BrandIcons";
+import { JsonLd } from "@/components/JsonLd";
 import { portfolio, renseg } from "@/data/portfolio";
+import { absoluteUrl, publicationSeo, siteConfig } from "@/data/site";
+import { getArticleStructuredData } from "@/lib/structured-data";
+
+const seo = publicationSeo.renseg;
 
 export const metadata: Metadata = {
-  title: "RenSeg Case Study | H. M. Sarwer Alam",
-  description:
-    "RenSeg is a medical computer vision pipeline for kidney CT localization, contour-guided unsupervised segmentation, and classification preparation.",
+  title: "RenSeg Research Case Study",
+  description: seo.description,
+  keywords: [...seo.keywords],
+  alternates: { canonical: siteConfig.routes.renseg },
+  openGraph: {
+    title: `${seo.title} | ${siteConfig.name}`,
+    description: seo.description,
+    url: siteConfig.routes.renseg,
+    type: "article",
+    authors: [siteConfig.url],
+    section: "Medical Image Analysis",
+    tags: [...seo.keywords],
+    images: [{ url: `${siteConfig.routes.renseg}/opengraph-image`, width: 1200, height: 630, alt: seo.title }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${seo.title} | ${siteConfig.name}`,
+    description: seo.description,
+    images: [`${siteConfig.routes.renseg}/opengraph-image`],
+  },
+  other: {
+    citation_title: seo.title,
+    citation_author: [...seo.authors],
+    citation_publication_date: seo.datePublished,
+    citation_journal_title: seo.journal,
+    citation_doi: seo.doi,
+    citation_abstract_html_url: absoluteUrl(siteConfig.routes.renseg),
+  },
 };
 
 export default function RenSegPage() {
   return (
     <main className="work-page">
+      <JsonLd id="renseg-structured-data" data={getArticleStructuredData("renseg")} />
       <header className="work-nav">
         <div className="container work-nav-inner">
           <Link className="brand" href="/">

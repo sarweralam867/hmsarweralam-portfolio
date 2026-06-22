@@ -29,7 +29,7 @@ export function Research() {
               <div className="publication-links">
                 {publication.caseStudy ? (
                   <Link className="publication-action case-study-action" href={publication.caseStudy} aria-label={`Read more about ${publication.title}`}>
-                    <ArrowUpRight size={19} /><small>Read more</small>
+                    <ArrowUpRight size={19} /><small>Read more<span className="sr-only"> about {publication.title}</span></small>
                   </Link>
                 ) : null}
                 {publication.href ? (

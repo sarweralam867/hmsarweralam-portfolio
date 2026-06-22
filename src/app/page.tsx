@@ -9,11 +9,14 @@ import { Navbar } from "@/components/Navbar";
 import { Projects } from "@/components/Projects";
 import { Research } from "@/components/Research";
 import { Skills } from "@/components/Skills";
+import { JsonLd } from "@/components/JsonLd";
+import { getProfileStructuredData } from "@/lib/structured-data";
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <JsonLd id="profile-structured-data" data={getProfileStructuredData()} />
       <main>
         <Hero />
         <About />

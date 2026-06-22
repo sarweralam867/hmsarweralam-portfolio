@@ -1,17 +1,49 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, BrainCircuit, FileText, Microscope } from "lucide-react";
+import { JsonLd } from "@/components/JsonLd";
 import { leukocyteNet, portfolio } from "@/data/portfolio";
+import { absoluteUrl, publicationSeo, siteConfig } from "@/data/site";
+import { getArticleStructuredData } from "@/lib/structured-data";
+
+const seo = publicationSeo.leukocyteNet;
 
 export const metadata: Metadata = {
-  title: "LeukocyteNet Case Study | H. M. Sarwer Alam",
-  description:
-    "LeukocyteNet is an explainable VGG19 and Swin Transformer fusion framework for automated classification of white blood cell disorders.",
+  title: "LeukocyteNet Research Case Study",
+  description: seo.description,
+  keywords: [...seo.keywords],
+  alternates: { canonical: siteConfig.routes.leukocyteNet },
+  openGraph: {
+    title: `${seo.title} | ${siteConfig.name}`,
+    description: seo.description,
+    url: siteConfig.routes.leukocyteNet,
+    type: "article",
+    publishedTime: "2026-06-01T00:00:00Z",
+    authors: [siteConfig.url],
+    section: "Explainable Healthcare AI",
+    tags: [...seo.keywords],
+    images: [{ url: `${siteConfig.routes.leukocyteNet}/opengraph-image`, width: 1200, height: 630, alt: seo.title }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${seo.title} | ${siteConfig.name}`,
+    description: seo.description,
+    images: [`${siteConfig.routes.leukocyteNet}/opengraph-image`],
+  },
+  other: {
+    citation_title: seo.title,
+    citation_author: [...seo.authors],
+    citation_publication_date: seo.datePublished,
+    citation_journal_title: seo.journal,
+    citation_doi: seo.doi,
+    citation_abstract_html_url: absoluteUrl(siteConfig.routes.leukocyteNet),
+  },
 };
 
 export default function LeukocyteNetPage() {
   return (
     <main className="work-page leukocyte-page">
+      <JsonLd id="leukocytenet-structured-data" data={getArticleStructuredData("leukocyteNet")} />
       <header className="work-nav">
         <div className="container work-nav-inner">
           <Link className="brand" href="/">

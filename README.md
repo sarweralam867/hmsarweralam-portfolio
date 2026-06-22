@@ -34,3 +34,9 @@ All portfolio content is centralized in `src/data/portfolio.ts`. Replace `public
 ## Deployment
 
 Import this repository into Vercel and use the default Next.js settings. The site has no backend, database, environment variables, or runtime filesystem dependency.
+
+## Search discovery
+
+The site generates canonical metadata, JSON-LD, Open Graph cards, `robots.txt`, `sitemap.xml`, `llms.txt`, and `llms-full.txt`. After deployment, add the canonical URL to Google Search Console and Bing Webmaster Tools, then submit `/sitemap.xml` and request indexing for the homepage and both research case studies.
+
+The résumé and CV remain downloadable but are served with `X-Robots-Tag: noindex, noarchive` to reduce exposure of private details contained in the PDFs.
